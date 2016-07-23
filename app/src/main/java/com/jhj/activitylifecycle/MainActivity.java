@@ -27,11 +27,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,0);
             }
         });
+
+        Button buttonthird = (Button) findViewById(R.id.activity_main_thirdbutton);
+        buttonthird.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Third_Activity.class);
+                startActivityForResult(intent,1);
+            }
+        });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String name = data.getStringExtra("back");
+        String name="";
+        switch (requestCode) {
+            case 0:
+                name = data.getStringExtra("return");
+                break;
+            case 1:
+                name = data.getStringExtra("back");
+                break;
+        }
+
         Toast.makeText(this, name,Toast.LENGTH_SHORT).show();
     }
 

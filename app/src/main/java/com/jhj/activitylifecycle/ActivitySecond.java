@@ -32,7 +32,7 @@ public class ActivitySecond extends AppCompatActivity {
             public void onClick(View v) {
                 String name=mNameEditText.getText().toString();
                 Intent intent = new Intent();
-                intent.putExtra("back",name);
+                intent.putExtra("return",name);
                 setResult(RESULT_OK,intent);
                 finish();
             }
