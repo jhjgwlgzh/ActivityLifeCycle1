@@ -24,9 +24,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
                 intent.putExtra(NAME_INFO, editText.getText().toString());
-                startActivity(intent);
+                startActivityForResult(intent,0);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String name = data.getStringExtra("back");
+        Toast.makeText(this, name,Toast.LENGTH_SHORT).show();
     }
 
     @Override
